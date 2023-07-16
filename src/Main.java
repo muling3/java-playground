@@ -5,7 +5,7 @@ public class Main {
         // initialization
         /** AssignmentOne assignmentOne = new AssignmentOne();
 
-        //getting integers
+         //getting integers
         int[] array = assignmentOne.getIntegers();
 
         //sorting the integerArray
@@ -15,10 +15,10 @@ public class Main {
         assignmentOne.printArray(sortedArray); */
 
 
-        /** AssignmentTwo assignmentTwo = new AssignmentTwo();
-        assignmentTwo.startApp();*/
+        AssignmentTwo assignmentTwo = new AssignmentTwo();
+        assignmentTwo.startApp();
 
-        AssignmentThree assignmentThree = new AssignmentThree();
-        assignmentThree.startApp();
+        /** AssignmentThree assignmentThree = new AssignmentThree();
+        assignmentThree.startApp(); */
     }
 }

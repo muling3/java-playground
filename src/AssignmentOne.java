@@ -17,7 +17,19 @@ public class AssignmentOne {
 
     public AssignmentOne(){}
 
-    public int[] getIntegers(){
+    public static void main(String[] args) {
+
+        //getting integers
+        int[] array = getIntegers();
+
+        //sorting the integerArray
+        int[] sortedArray = sortArray(array);
+
+        // printing the sorted array
+        printArray(sortedArray);
+    }
+
+    public static int[] getIntegers(){
         Scanner keyboard = new Scanner(System.in);
 
         int[] entereredNumbers = new int[]{};
@@ -65,7 +77,7 @@ public class AssignmentOne {
        return entereredNumbers;
     }
 
-    private int[] getArrayValues(){
+    private static int[] getArrayValues(){
         Scanner scanner = new Scanner(System.in);
 
         //ask the number of elements of the array
@@ -92,7 +104,7 @@ public class AssignmentOne {
         return values;
     }
 
-    public int[] sortArray(int[] enteredArray){
+    public static int[] sortArray(int[] enteredArray){
         int currentIndex, currentValue;
         for (int i = 0; i < enteredArray.length - 1; i++) {
             currentIndex = i;
@@ -112,7 +124,7 @@ public class AssignmentOne {
         return enteredArray;
     }
 
-    public void printArray(int[] enteredArray){
+    public static void printArray(int[] enteredArray){
         StringBuffer stringBuffer = new StringBuffer();
 
         for (int i = 0; i < enteredArray.length; i++) {

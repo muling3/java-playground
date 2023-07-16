@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -6,23 +7,30 @@ public class Contact {
     // initialization
     public String name, phoneNumber;
 
+    ArrayList<Contact> contacts;
+
     public Contact(String name, String phoneNumber){
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
 
-    public Contact(){}
+    public Contact(){
+        contacts = new ArrayList<>();
+    }
 
-
-    public void printContacts(List<Contact> contacts) {
+    public void printContacts() {
         if(contacts.size() < 1) {
-            System.out.println("No contacts in ur phone book");
+            System.out.println("\nNo contacts in ur phone book");
         }else {
-            contacts.forEach(System.out::println);
+//            contacts.forEach(System.out::println);
+                       // or
+            for(int i = 0; i < contacts.size(); i++) {
+                System.out.println("1. " + contacts.get(i));
+            }
         }
     }
 
-    public Contact updateContact(String name, Contact contact, List<Contact> contacts) {
+    public Contact updateContact(String name, Contact contact) {
         List<Contact> matchedContacts = contacts.stream().filter(c -> c.name.equals(name)).collect(Collectors.toList());
         if(matchedContacts.size() < 1){
             return new Contact();
@@ -39,22 +47,25 @@ public class Contact {
         return matchedContact;
     }
 
-    public boolean removeContact(String name, List<Contact> contacts) {
+    // removing contact
+    public boolean removeContact(String name) {
         boolean removeStatus = contacts.removeIf(contact -> contact.name.equals(name));
         return removeStatus;
     }
 
-    public boolean addContact(Contact contact, List<Contact> contacts){
+    // for adding contact
+    public boolean addContact(Contact contact){
         contacts.add(contact);
         return true;
     }
 
-    public Contact getContact(String name, List<Contact> contacts){
+    public Contact getContact(String name){
         List<Contact> matchedContacts = contacts.stream().filter(c -> c.name.equals(name)).collect(Collectors.toList());
         return matchedContacts.size() > 0 ? matchedContacts.get(0) : new Contact();
     }
 
     @Override
+
     public String toString() {
         return "Contact{" +
                 "name='" + name + '\'' +

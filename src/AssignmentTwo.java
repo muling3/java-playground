@@ -1,6 +1,4 @@
-import java.util.ArrayList;
 import java.util.Scanner;
-
 
 /**
  *     2. Create a new program that implements a simple mobile phone with the following capabilities.
@@ -16,22 +14,23 @@ import java.util.Scanner;
  * MobilePhone should do everything with contact object only
  */
 public class AssignmentTwo {
-    ArrayList<Contact> contacts;
+
     Contact contact;
-
     public AssignmentTwo() {
-        contacts = new ArrayList();
-
         contact = new Contact();
     }
 
-    public void startApp(){
-        this.printMenu();
+    public static void main(String[] args) {
+        startApp();
+    }
+
+    public static void startApp(){
+        new AssignmentTwo().printMenu();
     }
 
     private void printMenu() {
         System.out.print("Welcome to my Mobile phone \n\t" +
-                "1.Print Contacts\n\t2.Add Contact\n\t3. Update Contact\n" +
+                "1.Print Contacts\n\t2.Add Contact\n\t3.Update Contact\n" +
                 "\t4.Remove Contact\n\t5.Search Contact\n\t6.Quit\n");
         receiveUserChoice();
     }
@@ -46,7 +45,7 @@ public class AssignmentTwo {
 
         switch (choice) {
             case 1:
-                contact.printContacts(contacts);
+                contact.printContacts();
 
                 System.out.print("\n\n");
                 printMenu();
@@ -61,7 +60,7 @@ public class AssignmentTwo {
                 System.out.print("Phone Number: ");
                 phoneNumber = keyboard.nextLine();
 
-                hasAdded = contact.addContact(new Contact(contactName, phoneNumber), contacts);
+                hasAdded = contact.addContact(new Contact(contactName, phoneNumber));
                 if (hasAdded) {
                     System.out.println("Contact added successfully");
                 } else {
@@ -84,7 +83,7 @@ public class AssignmentTwo {
                 System.out.print("Phone Number: ");
                 phoneNumber = keyboard.nextLine();
 
-                Contact c = contact.updateContact(name, new Contact(contactName, phoneNumber), contacts);
+                Contact c = contact.updateContact(name, new Contact(contactName, phoneNumber));
                 if (c.name == null) {
                     System.out.println("Contact failed to update");
                 } else {
@@ -101,7 +100,7 @@ public class AssignmentTwo {
                 System.out.print("Enter the name of the contact you want to remove: ");
                 name = keyboard.nextLine();
 
-                hasRemoved = contact.removeContact(name, contacts);
+                hasRemoved = contact.removeContact(name);
                 if (hasRemoved) {
                     System.out.println("Contact removed successfully");
                 } else {
@@ -118,11 +117,11 @@ public class AssignmentTwo {
                 System.out.print("Enter the name of the contact you're looking for ");
                 name = keyboard.nextLine();
 
-                Contact cn = contact.getContact(name, contacts);
+                Contact cn = contact.getContact(name);
                 if (cn.name == null) {
                     System.out.println("Contact does not exist");
                 } else {
-                    System.out.println("Contact found" + contact);
+                    System.out.println("Contact found" + cn);
                 }
 
                 System.out.print("\n\n");

@@ -57,6 +57,10 @@ public class AssignmentThree {
 
     public AssignmentThree(){}
 
+    public static void main(String[] args) {
+        new AssignmentThree().startApp();
+    }
+
     public void startApp(){
         this.nutritionPlanApp();
     }
@@ -74,12 +78,12 @@ public class AssignmentThree {
         nutritionPlanChoice = keyboard.nextInt();
 
         System.out.print("\n\nHow many adults are to be fed on your plan? \n");
-        System.out.print("\t1. 1\n\t2. 2\n\t3. 3\n\t4. 4\n\t");
+        System.out.print("\t◾\uFE0F 1\n\t◾\uFE0F 2\n\t◾\uFE0F 3\n\t◾\uFE0F 4\n\t");
         // get the user choice on adults to be fed
         adults = keyboard.nextInt();
 
         System.out.print("\n\nHow many children are to be fed on your plan? \n");
-        System.out.print("\t1. 0\n\t2. 1\n\t3. 2\n\t4. 3\n\t5. 4\n\t");
+        System.out.print("\t◾\uFE0F 0\n\t◾\uFE0F 1\n\t◾\uFE0F 2\n\t◾\uFE0F 3\n\t◾\uFE0F 4\n\t");
         // get the user choice on children to be fed
         kids = keyboard.nextInt();
 
